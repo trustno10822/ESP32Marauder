@@ -317,7 +317,7 @@ extern "C" {
                   uint8_t temp_len = display_string.length();
                   for (uint8_t i = 0; i < 40 - temp_len; i++)
                   {
-                    display_string.concat(" ");
+                    display_string.concat(' ');
                   }
                   display_obj.display_buffer->add(display_string);
                 #endif
@@ -393,7 +393,7 @@ extern "C" {
               Serial.print(F(" RSSI: "));
               Serial.print(advertisedDevice->getRSSI());
       
-              display_string.concat(" ");
+              display_string.concat(' ');
               Serial.print(" ");
               
               Serial.print(F("Device: "));
@@ -413,7 +413,7 @@ extern "C" {
                 uint8_t temp_len = display_string.length();
                 for (uint8_t i = 0; i < 40 - temp_len; i++)
                 {
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                 }
         
                 Serial.println();
@@ -469,7 +469,7 @@ extern "C" {
                     uint8_t temp_len = display_string.length();
                     for (uint8_t i = 0; i < 40 - temp_len; i++)
                     {
-                      display_string.concat(" ");
+                      display_string.concat(' ');
                     }
             
                     Serial.println();
@@ -504,7 +504,7 @@ extern "C" {
 
             if (wifi_scan_obj.analyzer_frames_recvd > ANALYZER_NAME_REFRESH) {
               display_string.concat(advertisedDevice->getRSSI());
-              display_string.concat(" ");
+              display_string.concat(' ');
 
               if(advertisedDevice->getName().length() != 0)
                 display_string.concat(advertisedDevice->getName().c_str());
@@ -648,10 +648,10 @@ extern "C" {
                 String display_string = "";
                 display_string.concat(CYAN_KEY);
                 display_string.concat(String(rssi));
-                display_string.concat(" ");
+                display_string.concat(' ');
                 if (serial.length()) {
                   display_string.concat(serial);
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                 }
 
                 if (name.length() == 0) {
@@ -659,13 +659,13 @@ extern "C" {
                   display_string.concat(mac);
                 }
                 else {
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                   display_string.concat(name);
                 }
 
                 uint8_t temp_len = display_string.length();
                 for (uint8_t i = 0; i < 40 - temp_len; i++) {
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                 }
 
                 if (!display_obj.printing) {
@@ -817,10 +817,10 @@ extern "C" {
                       display_string = GREEN_KEY;
 
                     display_string.concat(String(rssi));
-                    display_string.concat(" ");
+                    display_string.concat(' ');
                     if (serial.length()) {
                       display_string.concat(serial);
-                      display_string.concat(" ");
+                      display_string.concat(' ');
                     }
 
                     if (name.length() == 0) {
@@ -828,13 +828,13 @@ extern "C" {
                       display_string.concat(mac);
                     }
                     else {
-                      display_string.concat(" ");
+                      display_string.concat(' ');
                       display_string.concat(name);
                     }
 
                     uint8_t temp_len = display_string.length();
                     for (uint8_t i = 0; i < 40 - temp_len; i++) {
-                      display_string.concat(" ");
+                      display_string.concat(' ');
                     }
 
                     if (!display_obj.printing) {
@@ -887,12 +887,12 @@ extern "C" {
                     if(strcmp(advertisedDevice->getName().c_str(), bad_list[i].c_str()) == 0)
                     {
                       display_string.concat(text_table4[1]);
-                      display_string.concat(" ");
+                      display_string.concat(' ');
                       display_string.concat(advertisedDevice->getName().c_str());
                       uint8_t temp_len = display_string.length();
                       for (uint8_t i = 0; i < 40 - temp_len; i++)
                       {
-                        display_string.concat(" ");
+                        display_string.concat(' ');
                       }
                       while (display_obj.printing)
                         delay(1);
@@ -1011,7 +1011,7 @@ extern "C" {
                   uint8_t temp_len = display_string.length();
                   for (uint8_t i = 0; i < 40 - temp_len; i++)
                   {
-                    display_string.concat(" ");
+                    display_string.concat(' ');
                   }
                   display_obj.display_buffer->add(display_string);
                 #endif
@@ -1087,7 +1087,7 @@ extern "C" {
               Serial.print(F(" RSSI: "));
               Serial.print(advertisedDevice->getRSSI());
       
-              display_string.concat(" ");
+              display_string.concat(' ');
               Serial.print(" ");
               
               Serial.print(F("Device: "));
@@ -1107,7 +1107,7 @@ extern "C" {
                 uint8_t temp_len = display_string.length();
                 for (uint8_t i = 0; i < 40 - temp_len; i++)
                 {
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                 }
         
                 Serial.println();
@@ -1162,7 +1162,7 @@ extern "C" {
                     uint8_t temp_len = display_string.length();
                     for (uint8_t i = 0; i < 40 - temp_len; i++)
                     {
-                      display_string.concat(" ");
+                      display_string.concat(' ');
                     }
             
                     Serial.println();
@@ -1196,7 +1196,7 @@ extern "C" {
 
             if (wifi_scan_obj.analyzer_frames_recvd > ANALYZER_NAME_REFRESH) {
               display_string.concat(advertisedDevice->getRSSI());
-              display_string.concat(" ");
+              display_string.concat(' ');
 
               if(advertisedDevice->getName().length() != 0)
                 display_string.concat(advertisedDevice->getName().c_str());
@@ -1340,10 +1340,10 @@ extern "C" {
                 String display_string = "";
                 display_string.concat(CYAN_KEY);
                 display_string.concat(String(rssi));
-                display_string.concat(" ");
+                display_string.concat(' ');
                 if (serial.length()) {
                   display_string.concat(serial);
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                 }
 
                 if (name.length() == 0) {
@@ -1351,13 +1351,13 @@ extern "C" {
                   display_string.concat(mac);
                 }
                 else {
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                   display_string.concat(name);
                 }
 
                 uint8_t temp_len = display_string.length();
                 for (uint8_t i = 0; i < 40 - temp_len; i++) {
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                 }
 
                 if (!display_obj.printing) {
@@ -1509,10 +1509,10 @@ extern "C" {
                       display_string = GREEN_KEY;
 
                     display_string.concat(String(rssi));
-                    display_string.concat(" ");
+                    display_string.concat(' ');
                     if (serial.length()) {
                       display_string.concat(serial);
-                      display_string.concat(" ");
+                      display_string.concat(' ');
                     }
 
                     if (name.length() == 0) {
@@ -1520,13 +1520,13 @@ extern "C" {
                       display_string.concat(mac);
                     }
                     else {
-                      display_string.concat(" ");
+                      display_string.concat(' ');
                       display_string.concat(name);
                     }
 
                     uint8_t temp_len = display_string.length();
                     for (uint8_t i = 0; i < 40 - temp_len; i++) {
-                      display_string.concat(" ");
+                      display_string.concat(' ');
                     }
 
                     if (!display_obj.printing) {
@@ -1579,12 +1579,12 @@ extern "C" {
                     if(strcmp(advertisedDevice->getName().c_str(), bad_list[i].c_str()) == 0)
                     {
                       display_string.concat(text_table4[1]);
-                      display_string.concat(" ");
+                      display_string.concat(' ');
                       display_string.concat(advertisedDevice->getName().c_str());
                       uint8_t temp_len = display_string.length();
                       for (uint8_t i = 0; i < 40 - temp_len; i++)
                       {
-                        display_string.concat(" ");
+                        display_string.concat(' ');
                       }
                       while (display_obj.printing)
                         delay(1);
@@ -4783,7 +4783,7 @@ void WiFiScan::executeWarDrive() {
             #ifdef HAS_SCREEN
               for (int i = 0; i < 40 - temp_len; i++)
               {
-                display_string.concat(" ");
+                display_string.concat(' ');
               }
               
               display_obj.display_buffer->add(display_string);
@@ -5664,7 +5664,7 @@ void WiFiScan::pwnSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type)
         int temp_len = display_string.length();
         for (int i = 0; i < 40 - temp_len; i++)
         {
-          display_string.concat(" ");
+          display_string.concat(' ');
         }
   
         Serial.print(" ");
@@ -5796,7 +5796,7 @@ void WiFiScan::apSnifferCallbackFull(void* buf, wifi_promiscuous_pkt_type_t type
             int temp_len = display_string.length();
 
             for (int i = 0; i < 50 - temp_len; i++)
-              display_string.concat(" ");
+              display_string.concat(' ');
 
             display_obj.display_buffer->add(display_string);
           #endif
@@ -5832,24 +5832,30 @@ void WiFiScan::apSnifferCallbackFull(void* buf, wifi_promiscuous_pkt_type_t type
         #ifdef HAS_SCREEN
           display_string.concat("#");
           display_string.concat(access_points->size());
-          display_string.concat(" ");
+          display_string.concat(' ');
         #endif
         #ifdef HAS_FULL_SCREEN
           display_string.concat(snifferPacket->rx_ctrl.rssi);
-          display_string.concat(" ");
+          display_string.concat(' ');
           display_string.concat(snifferPacket->rx_ctrl.channel);
-          display_string.concat(" ");
+          display_string.concat(' ');
         #endif
 
         Serial.print(F(" ESSID: "));
         if (snifferPacket->payload[37] <= 0)
           display_string.concat(addr);
         else {
-          for (int i = 0; i < snifferPacket->payload[37]; i++)
+          // Reserve space for efficiency
+          int essid_len = snifferPacket->payload[37];
+          display_string.reserve(display_string.length() + essid_len);
+          essid.reserve(essid.length() + essid_len);
+          
+          for (int i = 0; i < essid_len; i++)
           {
-            Serial.print((char)snifferPacket->payload[i + 38]);
-            display_string.concat((char)snifferPacket->payload[i + 38]);
-            essid.concat((char)snifferPacket->payload[i + 38]);
+            char c = (char)snifferPacket->payload[i + 38];
+            Serial.print(c);
+            display_string.concat(c);
+            essid.concat(c);
           }
         }
 
@@ -5858,7 +5864,7 @@ void WiFiScan::apSnifferCallbackFull(void* buf, wifi_promiscuous_pkt_type_t type
         int temp_len = display_string.length();
         for (int i = 0; i < 50 - temp_len; i++)
         {
-          display_string.concat(" ");
+          display_string.concat(' ');
         }
   
         Serial.print(" ");
@@ -6070,7 +6076,7 @@ void WiFiScan::apSnifferCallbackFull(void* buf, wifi_promiscuous_pkt_type_t type
     #ifdef HAS_SCREEN
       for (int i = 0; i < 50 - temp_len; i++)
       {
-        display_string.concat(" ");
+        display_string.concat(' ');
       }
 
       Serial.print(" ");
@@ -6273,11 +6279,18 @@ void WiFiScan::apSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type)
         display_string.concat(addr);
         Serial.print(F(" ESSID: "));
         display_string.concat(" -> ");
-        for (int i = 0; i < snifferPacket->payload[37]; i++)
+        
+        // Reserve space for efficiency
+        int essid_len = snifferPacket->payload[37];
+        display_string.reserve(display_string.length() + essid_len);
+        essid.reserve(essid.length() + essid_len);
+        
+        for (int i = 0; i < essid_len; i++)
         {
-          Serial.print((char)snifferPacket->payload[i + 38]);
-          display_string.concat((char)snifferPacket->payload[i + 38]);
-          essid.concat((char)snifferPacket->payload[i + 38]);
+          char c = (char)snifferPacket->payload[i + 38];
+          Serial.print(c);
+          display_string.concat(c);
+          essid.concat(c);
 
           
         }
@@ -6287,7 +6300,7 @@ void WiFiScan::apSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type)
         int temp_len = display_string.length();
         for (int i = 0; i < 40 - temp_len; i++)
         {
-          display_string.concat(" ");
+          display_string.concat(' ');
         }
   
         Serial.print(" ");
@@ -6793,7 +6806,7 @@ void WiFiScan::pineScanSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t ty
 
             int temp_len = display_string.length();
             for (int i = 0; i < 40 - temp_len; i++) {
-              display_string.concat(" ");
+              display_string.concat(' ');
             }
             
             display_obj.display_buffer->add(display_string);
@@ -6804,7 +6817,7 @@ void WiFiScan::pineScanSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t ty
 
             temp_len = display_string.length();
             for (int i = 0; i < 40 - temp_len; i++) {
-              display_string.concat(" ");
+              display_string.concat(' ');
             }
 
             display_obj.display_buffer->add(display_string);
@@ -6823,7 +6836,7 @@ void WiFiScan::pineScanSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t ty
 
             int temp_len = display_string.length();
             for (int i = 0; i < 40 - temp_len; i++) {
-              display_string.concat(" ");
+              display_string.concat(' ');
             }
             
             display_obj.display_buffer->add(display_string);
@@ -6835,7 +6848,7 @@ void WiFiScan::pineScanSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t ty
 
             temp_len = display_string.length();
             for (int i = 0; i < 40 - temp_len; i++) {
-              display_string.concat(" ");
+              display_string.concat(' ');
             }
 
             display_obj.display_buffer->add(display_string);
@@ -6846,7 +6859,7 @@ void WiFiScan::pineScanSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t ty
 
             temp_len = display_string.length();
             for (int i = 0; i < 40 - temp_len; i++) {
-              display_string.concat(" ");
+              display_string.concat(' ');
             }
 
             display_obj.display_buffer->add(display_string);
@@ -7081,7 +7094,7 @@ void WiFiScan::multiSSIDSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t t
 
         int temp_len = display_string.length();
         for (int i = 0; i < 40 - temp_len; i++) {
-          display_string.concat(" ");
+          display_string.concat(' ');
         }
         
         #ifdef HAS_SCREEN
@@ -7192,7 +7205,7 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
             int temp_len = display_string.length();
             for (int i = 0; i < 50 - temp_len; i++)
             {
-              display_string.concat(" ");
+              display_string.concat(' ');
             }
             #ifdef HAS_SCREEN
               display_obj.display_buffer->add(display_string);
@@ -7215,9 +7228,9 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
           Serial.print(F(" ESSID: "));
           #ifdef HAS_FULL_SCREEN
             display_string.concat(snifferPacket->rx_ctrl.rssi);
-            display_string.concat(" ");
+            display_string.concat(' ');
             display_string.concat(snifferPacket->rx_ctrl.channel);
-            display_string.concat(" ");
+            display_string.concat(' ');
           #endif
           if (snifferPacket->payload[37] <= 0)
             display_string.concat(addr);
@@ -7234,7 +7247,7 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
           #ifdef HAS_SCREEN
             for (int i = 0; i < 40 - temp_len; i++)
             {
-              display_string.concat(" ");
+              display_string.concat(' ');
             }
       
             Serial.print(" ");
@@ -7290,7 +7303,7 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
               #ifdef HAS_SCREEN
                 for (int i = 0; i < 40 - temp_len; i++)
                 {
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                 }
           
                 Serial.print(" ");
@@ -7369,7 +7382,7 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
           #ifdef HAS_SCREEN
             for (int i = 0; i < 19 - snifferPacket->payload[25]; i++)
             {
-              display_string.concat(" ");
+              display_string.concat(' ');
             }
       
             display_obj.display_buffer->add(display_string);
@@ -7412,7 +7425,7 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
               #ifdef HAS_SCREEN
                 for (int i = 0; i < 40 - temp_len; i++)
                 {
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                 }
           
                 Serial.print(" ");
@@ -7532,7 +7545,7 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
             #ifdef HAS_SCREEN
               display_string.concat(MAGENTA_KEY);
               display_string.concat((String)snifferPacket->rx_ctrl.rssi);
-              display_string.concat(" ");
+              display_string.concat(' ');
               display_string.concat(addr);
               display_string.concat(" -> ");
               display_string.concat(probe_req_essid);
@@ -7541,7 +7554,7 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
 
               for (int i = 0; i < 40; i++)
               {
-                display_string.concat(" ");
+                display_string.concat(' ');
               }
 
               //while (display_obj.printing)
@@ -7578,7 +7591,7 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
               #ifdef HAS_SCREEN
                 display_string.concat(GREEN_KEY);
                 display_string.concat((String)snifferPacket->rx_ctrl.rssi);
-                display_string.concat(" ");
+                display_string.concat(' ');
                 display_string.concat(addr);
                 display_string.concat(" -> ");
                 display_string.concat(essid);
@@ -7587,7 +7600,7 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
 
                 for (int i = 0; i < 40; i++)
                 {
-                  display_string.concat(" ");
+                  display_string.concat(' ');
                 }
 
                 //while (display_obj.printing)
@@ -7764,7 +7777,7 @@ void WiFiScan::stationSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t typ
   #ifdef HAS_SCREEN
     for (int i = 0; i < 40 - temp_len; i++)
     {
-      display_string.concat(" ");
+      display_string.concat(' ');
     }
 
     Serial.print(" ");
@@ -7918,13 +7931,13 @@ void WiFiScan::deauthSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
       display_string.concat(text_table4[0]);
       display_string.concat(snifferPacket->rx_ctrl.rssi);
 
-      display_string.concat(" ");
+      display_string.concat(' ');
       display_string.concat(addr);
 
       #ifdef HAS_SCREEN
         for (int i = 0; i < 19 - snifferPacket->payload[37]; i++)
         {
-          display_string.concat(" ");
+          display_string.concat(' ');
         }
   
         Serial.print(" ");
@@ -8014,7 +8027,7 @@ void WiFiScan::deauthSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
         #ifdef HAS_SCREEN
           for (int i = 0; i < 19 - snifferPacket->payload[25]; i++)
           {
-            display_string.concat(" ");
+            display_string.concat(' ');
           }
     
           display_obj.display_buffer->add(display_string);
@@ -8057,7 +8070,7 @@ void WiFiScan::deauthSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
             #ifdef HAS_SCREEN
               for (int i = 0; i < 40 - temp_len; i++)
               {
-                display_string.concat(" ");
+                display_string.concat(' ');
               }
         
               Serial.print(" ");
@@ -8150,7 +8163,7 @@ void WiFiScan::beaconListSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t 
       // with spaces.
       #ifdef HAS_SCREEN
         for (int i = 0; i < 19 - snifferPacket->payload[25]; i++)
-          display_string.concat(" ");
+          display_string.concat(' ');
   
         display_obj.display_buffer->add(display_string);
       #endif
@@ -9052,7 +9065,7 @@ void WiFiScan::wifiSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type)
       // Fill blank space
       for (int i = 0; i < 40 - temp_len; i++)
       {
-        display_string.concat(" ");
+        display_string.concat(' ');
       }
     
       //Serial.print(" ");
@@ -9088,7 +9101,7 @@ void WiFiScan::wifiSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type)
 
           // Show us RSSI
           display_string.concat(snifferPacket->rx_ctrl.rssi);
-          display_string.concat(" ");
+          display_string.concat(' ');
 
           // Get ESSID if exists else give BSSID to display string
           if (snifferPacket->payload[37] <= 0) // There is no ESSID. Just add BSSID
@@ -9286,7 +9299,7 @@ void WiFiScan::eapolSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type)
    #ifdef HAS_SCREEN
       for (int i = 0; i < 40 - temp_len; i++)
       {
-        display_string.concat(" ");
+        display_string.concat(' ');
       }
 
       Serial.print(" ");
@@ -10338,7 +10351,7 @@ bool WiFiScan::checkHostPort(IPAddress ip, uint16_t port, uint16_t timeout) {
             uint8_t temp_len = display_string.length();
             for (uint8_t i = 0; i < 40 - temp_len; i++)
             {
-              display_string.concat(" ");
+              display_string.concat(' ');
             }
             #ifdef HAS_SCREEN
               display_obj.display_buffer->add(display_string);
@@ -10365,7 +10378,7 @@ bool WiFiScan::checkHostPort(IPAddress ip, uint16_t port, uint16_t timeout) {
           uint8_t temp_len = display_string.length();
           for (uint8_t i = 0; i < 40 - temp_len; i++)
           {
-            display_string.concat(" ");
+            display_string.concat(' ');
           }
           #ifdef HAS_SCREEN
             display_obj.display_buffer->add(display_string);
@@ -10400,7 +10413,7 @@ void WiFiScan::pingScan(uint8_t scan_mode) {
         uint8_t temp_len = display_string.length();
         for (uint8_t i = 0; i < 40 - temp_len; i++)
         {
-          display_string.concat(" ");
+          display_string.concat(' ');
         }
         ipList->add(this->current_scan_ip);
         #ifdef HAS_SCREEN
@@ -10475,7 +10488,7 @@ void WiFiScan::portScan(uint8_t scan_mode, uint16_t targ_port) {
         uint8_t temp_len = display_string.length();
         for (uint8_t i = 0; i < 40 - temp_len; i++)
         {
-          display_string.concat(" ");
+          display_string.concat(' ');
         }
         #ifdef HAS_SCREEN
           display_obj.display_buffer->add(display_string);
@@ -10501,7 +10514,7 @@ void WiFiScan::portScan(uint8_t scan_mode, uint16_t targ_port) {
       uint8_t temp_len = display_string.length();
       for (uint8_t i = 0; i < 40 - temp_len; i++)
       {
-        display_string.concat(" ");
+        display_string.concat(' ');
       }
       #ifdef HAS_SCREEN
         display_obj.display_buffer->add(display_string);
