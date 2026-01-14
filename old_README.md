@@ -139,7 +139,17 @@ For the charge detection circuit, use a 1 to 2 voltage divider (the charge detec
     - Make the following modifications shown in [this issue](https://github.com/justcallmekoko/ESP32Marauder/issues/2#issuecomment-555695918) to the TFT_eSPI library you just installed
 7. Follow [these instructions](https://github.com/me-no-dev/arduino-esp32fs-plugin) for installing ESP32 Spiffs Tool
 8. Install the [CH340 Drivers](https://github.com/justcallmekoko/ESP32Marauder/blob/master/Drivers/CH34x_Install_Windows_v3_4.EXE)
-9. Download or clone this repository
+9. Clone this repository **with submodules** using one of these methods:
+    - Option A: Clone with submodules in one command:
+      ```bash
+      git clone --recursive https://github.com/justcallmekoko/ESP32Marauder.git
+      ```
+    - Option B: If you already cloned without `--recursive`, initialize submodules:
+      ```bash
+      cd ESP32Marauder
+      git submodule update --init --recursive
+      ```
+    **Note:** The Git submodules contain required libraries. If you don't initialize them, your IDE will report missing libraries in the `esp32_marauder/libraries/` folder.
 10. Open `esp32_marauder.ino`
 10.5. If you're using the analog battery measuring circuit, go to the MenuFunctions.h and change "#define BATTERY_ANALOG_ON" to 1
 11. Plug your ESP32 into a USB port and select the COM port under `Tools`>`Port`

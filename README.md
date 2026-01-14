@@ -24,5 +24,31 @@ Download the [latest release](https://github.com/justcallmekoko/ESP32Marauder/re
 
 Check out the project [wiki](https://github.com/justcallmekoko/ESP32Marauder/wiki) for a full overview of the ESP32 Marauder
 
+## Building from Source
+
+If you want to build the firmware from source, you'll need to initialize the Git submodules which contain the required libraries.
+
+### Cloning the Repository
+
+When cloning the repository, use the `--recursive` flag to automatically initialize and update all submodules:
+
+```bash
+git clone --recursive https://github.com/justcallmekoko/ESP32Marauder.git
+```
+
+### Initializing Submodules in an Existing Clone
+
+If you already cloned the repository without the `--recursive` flag, you can initialize the submodules with:
+
+```bash
+git submodule update --init --recursive
+```
+
+This will download all the required library dependencies located in `esp32_marauder/libraries/`.
+
+### Troubleshooting: "Libraries Not Found"
+
+If your IDE or editor is reporting missing libraries, it's likely because the Git submodules haven't been initialized. The library folders in `esp32_marauder/libraries/` will appear empty until you run the submodule initialization command above.
+
 # For Sale Now
 You can buy the ESP32 Marauder using [this link](https://www.justcallmekokollc.com)
