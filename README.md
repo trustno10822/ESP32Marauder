@@ -231,7 +231,7 @@ If you encounter errors like `fatal error: <LibraryName>.h: No such file or dire
 - `SimpleList` by Spacehuhn (for ESP32 Marauder)
 - `TFT_eSPI` (use [justcallmekoko's fork](https://github.com/justcallmekoko/TFT_eSPI))
 - `PCF8574` by Rob Tillaart (for I/O expander support)
-- `IRremote` by shirriff (for IR functionality - contains `IRrecv.h`)
+- `IRremote` by shirriff (for IR functionality - includes IRrecv.h)
 - `XPT2046_Touchscreen` (for touchscreen support)
 - `ArduinoJson` (for JSON handling)
 - `NimBLE-Arduino` (for Bluetooth functionality)
@@ -287,8 +287,8 @@ If you encounter errors like `fatal error: <LibraryName>.h: No such file or dire
 **Solution**:
 1. Verify display type matches the driver selected in `User_Setup.h`
 2. Check all SPI connections (MOSI, MISO, SCLK, CS, DC, RST)
-3. Ensure 3.3V power supply is stable and adequate (min 500mA recommended)
-4. Try adjusting display orientation in configs.h: `#define SCREEN_ORIENTATION 0` (or 1, 2, 3)
+3. Ensure 3.3V power supply is stable and adequate (minimum 500mA recommended)
+4. Try adjusting display orientation in `esp32_marauder/configs.h`: Look for display orientation settings for your board type
 
 #### Touch Not Working
 
@@ -302,14 +302,15 @@ If you encounter errors like `fatal error: <LibraryName>.h: No such file or dire
 
 ### Hardware-Specific Issues
 
-#### ESP32-WROOM vs ESP32-S3 vs ESP32-C5
+#### ESP32 Variant Differences
 
 Different ESP32 variants have different capabilities:
 - **ESP32-WROOM**: Standard dual-core, most compatible
-- **ESP32-S3**: Newer, more memory, different pin configurations
-- **ESP32-C5**: RISC-V based, 5GHz WiFi support, different toolchain
+- **ESP32-S3**: Newer, more memory, USB OTG support, different pin configurations
+- **ESP32-C3**: RISC-V based, single-core, smaller footprint
+- **ESP32-C6**: RISC-V based, WiFi 6 support
 
-Ensure you're using firmware built for your specific ESP32 variant.
+Ensure you're using firmware built for your specific ESP32 variant. ESP32 Marauder supports various boards - check the `configs.h` file for supported board targets.
 
 #### Power Issues
 
@@ -319,7 +320,7 @@ Ensure you're using firmware built for your specific ESP32 variant.
 - Ensure USB power supply provides at least 500mA
 - When using battery, verify voltage divider circuit for battery monitoring
 - Check for short circuits in wiring
-- Add 100µF capacitor near ESP32 VCC pin for stability
+- Add 100uF capacitor near ESP32 VCC pin for stability
 
 ### Getting More Help
 
