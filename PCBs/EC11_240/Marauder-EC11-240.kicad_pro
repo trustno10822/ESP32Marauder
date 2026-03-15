@@ -1,0 +1,116 @@
+{
+  "board": {
+    "design_settings": {
+      "defaults": {
+        "board_outline_line_width": 0.05,
+        "copper_line_width": 0.6,
+        "copper_text_size_h": 1.5,
+        "copper_text_size_v": 1.5,
+        "copper_text_thickness": 0.2
+      },
+      "rules": {
+        "min_clearance": 0.5,
+        "min_track_width": 0.6,
+        "min_via_diameter": 0.8,
+        "min_via_annular_width": 0.1,
+        "min_through_hole_diameter": 1.0
+      },
+      "track_widths": [
+        0.0,
+        0.6,
+        1.0
+      ],
+      "via_dimensions": [
+        {
+          "diameter": 1.6,
+          "drill": 0.8
+        }
+      ],
+      "zones_use_no_outline": true
+    },
+    "layer_presets": []
+  },
+  "boards": [],
+  "cvpcb": {
+    "equivalence_files": []
+  },
+  "libraries": {
+    "pinned_footprint_libs": [],
+    "pinned_symbol_libs": []
+  },
+  "meta": {
+    "filename": "Marauder-EC11-240.kicad_pro",
+    "version": 1
+  },
+  "net_settings": {
+    "classes": [
+      {
+        "clearance": 0.5,
+        "name": "Default",
+        "track_width": 0.6,
+        "via_diameter": 1.6,
+        "via_drill": 0.8,
+        "wire_width": 6
+      },
+      {
+        "clearance": 0.5,
+        "name": "GND",
+        "track_width": 1.0,
+        "via_diameter": 1.6,
+        "via_drill": 0.8,
+        "wire_width": 6
+      },
+      {
+        "clearance": 0.5,
+        "name": "Power",
+        "track_width": 1.0,
+        "via_diameter": 1.6,
+        "via_drill": 0.8,
+        "wire_width": 6
+      }
+    ],
+    "meta": {
+      "version": 3
+    },
+    "netclass_patterns": [
+      {
+        "netclass": "GND",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+3V3"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "VIN"
+      }
+    ]
+  },
+  "pcbnew": {
+    "last_paths": {},
+    "page_layout_descr_file": ""
+  },
+  "schematic": {
+    "annotate_start_num": 0,
+    "drawing": {
+      "default_line_thickness": 6.0,
+      "default_text_size": 50.0,
+      "junction_size_choice": 3
+    },
+    "meta": {
+      "version": 1
+    },
+    "net_format_name": "",
+    "plot_directory": "",
+    "subpart_first_id": 65,
+    "subpart_id_separator": 0
+  },
+  "sheets": [
+    [
+      "e0000000-0000-0000-0000-000000000001",
+      ""
+    ]
+  ],
+  "text_variables": {}
+}

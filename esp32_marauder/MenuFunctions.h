@@ -41,6 +41,11 @@
   #endif
 #endif
 
+#ifdef HAS_ENCODER
+  #include "RotaryEncoder.h"
+  extern RotaryEncoder encoder;
+#endif
+
 extern WiFiScan wifi_scan_obj;
 extern SDInterface sd_obj;
 extern BatteryInterface battery_obj;
