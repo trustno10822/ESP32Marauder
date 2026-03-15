@@ -78,6 +78,11 @@ https://www.online-utility.org/image/convert/to/XBM
 
 #endif
 
+#ifdef HAS_ENCODER
+  #include "RotaryEncoder.h"
+  RotaryEncoder encoder = RotaryEncoder(ENCODER_CLK, ENCODER_DT);
+#endif
+
 WiFiScan wifi_scan_obj;
 EvilPortal evil_portal_obj;
 Buffer buffer_obj;
