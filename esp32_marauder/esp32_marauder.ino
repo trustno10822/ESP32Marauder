@@ -78,6 +78,13 @@ https://www.online-utility.org/image/convert/to/XBM
 
 #endif
 
+#ifdef HAS_ENCODER
+  #include "RotaryEncoder.h"
+  #include "Switches.h"
+  RotaryEncoder encoder(ENCODER_CLK, ENCODER_DT);
+  Switches encoder_btn(ENCODER_SW, 500, true);
+#endif
+
 WiFiScan wifi_scan_obj;
 EvilPortal evil_portal_obj;
 Buffer buffer_obj;
@@ -220,6 +227,10 @@ void setup()
   #ifdef HAS_SCREEN
     display_obj.RunSetup();
     display_obj.tft.setTextColor(TFT_WHITE, TFT_BLACK);
+  #endif
+
+  #ifdef HAS_ENCODER
+    encoder.begin();
   #endif
 
   backlightOff();
