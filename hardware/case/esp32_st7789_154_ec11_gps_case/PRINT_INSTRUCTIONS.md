@@ -1,5 +1,9 @@
 # 3D-Printed Case – ESP32 ST7789 154 EC11 GPS
 
+> For full step-by-step printing instructions written for beginners (including
+> Creality Print setup, slice settings, and assembly), see
+> **[docs/BEGINNER_SETUP_GUIDE.md → Section 18](../../../docs/BEGINNER_SETUP_GUIDE.md#18-3d-print-the-case)**
+
 ## Overview
 
 This directory contains the 3D-printable enclosure for the ESP32 30-pin +

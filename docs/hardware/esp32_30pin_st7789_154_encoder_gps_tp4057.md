@@ -1,9 +1,14 @@
 # ESP32 30-pin + 1.54" ST7789 240×240 + EC11 Encoder + GPS + TP4057 LiPo
 
+> 🆕 **New to this project? Start here first:**  
+> **[Complete Beginner Setup Guide](../BEGINNER_SETUP_GUIDE.md)** — every step explained
+> in plain English, from shopping list to first boot. No prior experience required.
+
 ## Overview
 
-This page documents the custom hardware build for running ESP32 Marauder on an ESP32
-30-pin development board paired with a 1.54" ST7789 SPI TFT + integrated EC11 rotary
+This page is the technical reference for the hardware build.
+It documents pins, KiCad PCB layout, and firmware config for:
+an ESP32 30-pin development board paired with a 1.54" ST7789 SPI TFT + integrated EC11 rotary
 encoder module (12-pin header), a 4-pin GPS module, a TP4057-based LiPo charger, and
 a 3.7 V LiPo battery. A KiCad PCB and 3D-printed case are provided to house the build.
 
