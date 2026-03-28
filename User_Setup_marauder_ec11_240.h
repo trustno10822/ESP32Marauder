@@ -1,11 +1,11 @@
 //                            USER DEFINED SETTINGS
 //   Set driver type, fonts to be loaded, pins used and SPI control method etc.
 //
-//   ESP32 Marauder – 1.28" GC9A01 round 240×240 display + EC11 rotary encoder
+//   ESP32 Marauder – 1.54" ST7789 240×240 display + EC11 rotary encoder
 //   (combined single module – display and encoder on the same PCB)
 //
 //   Default pin assignments (adjust to match your wiring):
-//     Display DIN  → GPIO 23    Display CLK  → GPIO 18
+//     Display MOSI → GPIO 23    Display SCLK → GPIO 18
 //     Display CS   → GPIO 17    Display DC   → GPIO 16
 //     Display RST  → GPIO 5     Display BL   → GPIO 4
 //     Encoder CLK  → GPIO 32    Encoder DT   → GPIO 33
@@ -17,7 +17,11 @@
 //
 // ##################################################################################
 
-#define GC9A01_DRIVER
+#define ST7789_DRIVER
+
+// Many 1.54" ST7789 modules need colour inversion to display correctly.
+// If colours appear inverted after flashing, comment out the line below.
+#define TFT_INVERSION_ON
 
 #define TFT_WIDTH  240
 #define TFT_HEIGHT 240

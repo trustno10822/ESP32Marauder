@@ -32,7 +32,7 @@
   //#define MARAUDER_C5
   //#define MARAUDER_CARDPUTER
   //#define MARAUDER_V8
-  //#define MARAUDER_EC11_240 // Generic ESP32 + 1.28" GC9A01 round 240x240 + EC11 encoder (single combined module)
+  //#define MARAUDER_EC11_240 // Generic ESP32 + 1.54" ST7789 240x240 + EC11 encoder (single combined module)
   //// END BOARD TARGETS
 
   #define MARAUDER_VERSION "v1.10.0"
