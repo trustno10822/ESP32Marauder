@@ -2871,7 +2871,7 @@ void MenuFunctions::RunSetup()
     #ifdef HAS_MINI_KB
       if (c_btn.isHeld()) {
         while (!c_btn.justReleased())
-          delay(1);
+          yield();
       }
     #endif
 
@@ -2907,7 +2907,7 @@ void MenuFunctions::RunSetup()
                 while (!l_btn.justReleased()) {
                   l_btn.justPressed();
                   if (!l_btn.isHeld())
-                    delay(1);
+                    yield();
                   else
                     break;
                 }
@@ -2929,7 +2929,7 @@ void MenuFunctions::RunSetup()
                 while (!r_btn.justReleased()) {
                   r_btn.justPressed();
                   if (!r_btn.isHeld())
-                    delay(1);
+                    yield();
                   else
                     break;
                 }
@@ -2943,7 +2943,7 @@ void MenuFunctions::RunSetup()
                 pressed = true;
                 wifi_scan_obj.current_mini_kb_ssid.concat(String(char_array[this->mini_kb_index]).c_str());
                 while (!d_btn.justReleased())
-                  delay(1);
+                  yield();
               }
             #endif
 
@@ -2953,7 +2953,7 @@ void MenuFunctions::RunSetup()
                 pressed = true;
                 wifi_scan_obj.current_mini_kb_ssid.remove(wifi_scan_obj.current_mini_kb_ssid.length() - 1);
                 while (!u_btn.justReleased())
-                  delay(1);
+                  yield();
               }
             #endif
 

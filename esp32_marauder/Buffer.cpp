@@ -160,7 +160,7 @@ void Buffer::write(uint16_t n){
 
 void Buffer::write(const uint8_t* buf, uint32_t len){
   if(!writing) return;
-  while(saving) delay(10);
+  while(saving) yield(); // Use yield() instead of delay to be more CPU-friendly
   
   if(useA){
     memcpy(&bufA[bufSizeA], buf, len);

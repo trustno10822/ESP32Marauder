@@ -172,6 +172,7 @@ bool EvilPortal::setHtml() {
       return false;
     }
     String html = "";
+    html.reserve(html_file.size()); // Pre-allocate memory to avoid reallocations
     while (html_file.available()) {
       char c = html_file.read();
       if (isPrintable(c))
@@ -234,6 +235,7 @@ bool EvilPortal::setAP(LinkedList<ssid>* ssids, LinkedList<AccessPoint>* access_
         return false;
       }
       // AP name length good. Read from file into var
+      ap_config.reserve(ap_config_file.size()); // Pre-allocate memory to avoid reallocations
       while (ap_config_file.available()) {
         char c = ap_config_file.read();
         Serial.print(c);
