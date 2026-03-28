@@ -750,6 +750,86 @@ void MenuFunctions::main(uint32_t currentTime)
 
     #endif
   #endif
+
+  // Rotary encoder navigation (up/down/select)
+  #ifdef HAS_ENCODER
+  {
+    int8_t ticks = encoder.readTicks();
+
+    // CW rotation = move down in menu
+    if (ticks > 0) {
+      if ((wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF) ||
+          (wifi_scan_obj.currentScanMode == WIFI_CONNECTED) ||
+          (wifi_scan_obj.currentScanMode == OTA_UPDATE)) {
+        if (current_menu->selected < current_menu->list->size() - 1) {
+          current_menu->selected++;
+          if (current_menu->selected - this->menu_start_index >= BUTTON_SCREEN_LIMIT) {
+            this->buildButtons(current_menu, current_menu->selected + 1 - BUTTON_SCREEN_LIMIT);
+            this->displayCurrentMenu(current_menu->selected + 1 - BUTTON_SCREEN_LIMIT);
+          } else {
+            this->buttonSelected(current_menu->selected - this->menu_start_index, current_menu->selected);
+          }
+          if (!current_menu->list->get(current_menu->selected - 1).selected)
+            this->buttonNotSelected(current_menu->selected - 1 - this->menu_start_index, current_menu->selected - 1);
+        } else {
+          // Wrap to beginning
+          if (current_menu->selected >= BUTTON_SCREEN_LIMIT) {
+            current_menu->selected = 0;
+            this->buildButtons(current_menu);
+            this->displayCurrentMenu();
+            this->buttonSelected(current_menu->selected);
+          } else {
+            current_menu->selected = 0;
+            this->buttonSelected(current_menu->selected);
+            if (!current_menu->list->get(current_menu->list->size() - 1).selected)
+              this->buttonNotSelected(current_menu->list->size() - 1);
+          }
+        }
+      }
+    }
+    // CCW rotation = move up in menu
+    else if (ticks < 0) {
+      if ((wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF) ||
+          (wifi_scan_obj.currentScanMode == WIFI_CONNECTED) ||
+          (wifi_scan_obj.currentScanMode == OTA_UPDATE)) {
+        if (current_menu->selected > 0) {
+          current_menu->selected--;
+          if (current_menu->selected < this->menu_start_index) {
+            this->buildButtons(current_menu, current_menu->selected);
+            this->displayCurrentMenu(current_menu->selected);
+          }
+          this->buttonSelected(current_menu->selected - this->menu_start_index, current_menu->selected);
+          if (!current_menu->list->get(current_menu->selected + 1).selected)
+            this->buttonNotSelected(current_menu->selected + 1 - this->menu_start_index, current_menu->selected + 1);
+        } else {
+          // Wrap to end
+          current_menu->selected = current_menu->list->size() - 1;
+          if (current_menu->selected >= BUTTON_SCREEN_LIMIT) {
+            this->buildButtons(current_menu, current_menu->selected + 1 - BUTTON_SCREEN_LIMIT);
+            this->displayCurrentMenu(current_menu->selected + 1 - BUTTON_SCREEN_LIMIT);
+          }
+          this->buttonSelected(current_menu->selected, current_menu->selected);
+          if (!current_menu->list->get(0).selected)
+            this->buttonNotSelected(0, this->menu_start_index);
+        }
+      }
+    }
+
+    // Encoder push button = select current menu item
+    if (encoder_btn.justPressed()) {
+      if ((wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF) ||
+          (wifi_scan_obj.currentScanMode == WIFI_CONNECTED) ||
+          (wifi_scan_obj.currentScanMode == OTA_UPDATE)) {
+        current_menu->list->get(current_menu->selected).callable();
+      } else {
+        // Stop any active scan and return to menu
+        wifi_scan_obj.StartScan(WIFI_SCAN_OFF);
+        display_obj.init();
+        changeMenu(current_menu);
+      }
+    }
+  }
+  #endif
 }
 
 #if BATTERY_ANALOG_ON == 1
