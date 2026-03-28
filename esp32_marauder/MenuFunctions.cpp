@@ -588,11 +588,13 @@ void MenuFunctions::main(uint32_t currentTime)
     // Don't do this for touch screens
     #if !(defined(MARAUDER_V6) || defined(MARAUDER_V6_1) || defined(MARAUDER_CYD_MICRO) || defined(MARAUDER_CYD_GUITION) || defined(MARAUDER_CYD_2USB) || defined(MARAUDER_CYD_3_5_INCH))
       #if !defined(MARAUDER_M5STICKC) || defined(MARAUDER_M5STICKCP2)
-        #if (U_BTN >= 0 || defined(MARAUDER_CARDPUTER))
+        #if (U_BTN >= 0 || defined(MARAUDER_CARDPUTER) || defined(HAS_ENCODER))
           #if (U_BTN >= 0)
             if (u_btn.justPressed()) {
           #elif defined(MARAUDER_CARDPUTER)
             if (this->isKeyPressed(';')) {
+          #elif defined(HAS_ENCODER)
+            if (encoder.rotatedCCW()) {
           #endif
               if ((wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF) ||
                   (wifi_scan_obj.currentScanMode == WIFI_CONNECTED) ||
@@ -647,11 +649,13 @@ void MenuFunctions::main(uint32_t currentTime)
         #endif
       #endif
 
-      #if (D_BTN >= 0 || defined(MARAUDER_CARDPUTER))
+      #if (D_BTN >= 0 || defined(MARAUDER_CARDPUTER) || defined(HAS_ENCODER))
       #if (D_BTN >= 0)
       if (d_btn.justPressed()){
       #elif defined(MARAUDER_CARDPUTER)
       if (this->isKeyPressed('.')){
+      #elif defined(HAS_ENCODER)
+      if (encoder.rotatedCW()){
       #endif
         if ((wifi_scan_obj.currentScanMode == WIFI_SCAN_OFF) ||
             (wifi_scan_obj.currentScanMode == WIFI_CONNECTED) ||

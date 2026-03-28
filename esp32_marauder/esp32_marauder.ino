@@ -80,6 +80,7 @@ https://www.online-utility.org/image/convert/to/XBM
 
 #ifdef HAS_ENCODER
   #include "RotaryEncoder.h"
+  RotaryEncoder encoder = RotaryEncoder(ENCODER_CLK, ENCODER_DT);
   #include "Switches.h"
   RotaryEncoder encoder(ENCODER_CLK, ENCODER_DT);
   Switches encoder_btn(ENCODER_SW, 500, true);

@@ -5,6 +5,23 @@
 
 #include <Arduino.h>
 
+class RotaryEncoder {
+  private:
+    int clk_pin;
+    int dt_pin;
+    volatile int8_t rotation_count;
+    int last_clk_state;
+
+    static portMUX_TYPE mux;
+    static RotaryEncoder* instance;
+    static void IRAM_ATTR isr();
+
+  public:
+    RotaryEncoder();
+    RotaryEncoder(int clk_pin, int dt_pin);
+
+    bool rotatedCW();
+    bool rotatedCCW();
 // ISR-driven rotary encoder class.
 // Tracks CW and CCW ticks in an interrupt-safe manner.
 // Usage:
