@@ -32,7 +32,7 @@
   //#define MARAUDER_C5
   //#define MARAUDER_CARDPUTER
   //#define MARAUDER_V8
-  //#define MARAUDER_ST7789_EC11_240 // ESP32 30-pin + 1.54" ST7789 240x240 + EC11 rotary encoder + GPS + TP4057 LiPo
+  //#define MARAUDER_EC11_240 // Generic ESP32 + 1.54" ST7789 240x240 + EC11 encoder (single combined module)
   //// END BOARD TARGETS
 
   #define MARAUDER_VERSION "v1.10.0"
@@ -88,8 +88,8 @@
     #define HARDWARE_NAME "ESP32-C5 DevKit"
   #elif defined(MARAUDER_V8)
     #define HARDWARE_NAME "Marauder v8"
-  #elif defined(MARAUDER_ST7789_EC11_240)
-    #define HARDWARE_NAME "ESP32 ST7789 1.54\" EC11 GPS"
+  #elif defined(MARAUDER_EC11_240)
+    #define HARDWARE_NAME "Marauder EC11 240x240"
   #else
     #define HARDWARE_NAME "ESP32"
   #endif
@@ -447,22 +447,19 @@
     #define HAS_PSRAM
     //#define HAS_TEMP_SENSOR
   #endif
+  //// END BOARD FEATURES
 
-  #ifdef MARAUDER_ST7789_EC11_240
-    //#define FLIPPER_ZERO_HAT
-    #define HAS_BATTERY
+  #ifdef MARAUDER_EC11_240
+    //#define HAS_BATTERY
     #define HAS_BT
+    #define HAS_BUTTONS
     #define HAS_ENCODER
-    //#define HAS_NEOPIXEL_LED
-    //#define HAS_PWR_MGMT
     #define HAS_SCREEN
     #define HAS_MINI_SCREEN
+    #define HAS_SD
+    #define USE_SD
     #define HAS_GPS
-    //#define HAS_SD
-    //#define USE_SD
-    //#define HAS_TEMP_SENSOR
   #endif
-  //// END BOARD FEATURES
 
   //// POWER MANAGEMENT
   #ifdef HAS_PWR_MGMT
@@ -476,6 +473,15 @@
     #endif
   #endif
   //// END POWER MANAGEMENT
+
+  //// ENCODER DEFINITIONS
+  #ifdef HAS_ENCODER
+    #ifdef MARAUDER_EC11_240
+      #define ENCODER_CLK 32
+      #define ENCODER_DT  33
+    #endif
+  #endif
+  //// END ENCODER DEFINITIONS
 
   //// BUTTON DEFINITIONS
   #ifdef HAS_BUTTONS
@@ -709,6 +715,26 @@
     #ifdef MARAUDER_CYD_GUITION
       #define L_BTN -1
       #define C_BTN 0
+      #define U_BTN -1
+      #define R_BTN -1
+      #define D_BTN -1
+
+      //#define HAS_L
+      //#define HAS_R
+      //#define HAS_U
+      //#define HAS_D
+      #define HAS_C
+
+      #define L_PULL true
+      #define C_PULL true
+      #define U_PULL true
+      #define R_PULL true
+      #define D_PULL true
+    #endif
+
+    #ifdef MARAUDER_EC11_240
+      #define L_BTN -1
+      #define C_BTN 25
       #define U_BTN -1
       #define R_BTN -1
       #define D_BTN -1
@@ -1814,7 +1840,7 @@
       #define STATUSBAR_COLOR 0x4A49
     #endif
 
-    #ifdef MARAUDER_ST7789_EC11_240
+    #ifdef MARAUDER_EC11_240
       #define CHAN_PER_PAGE 7
 
       #define SCREEN_CHAR_WIDTH 40
@@ -1825,11 +1851,7 @@
       #define TFT_RST   5
       #define TFT_BL    4
       #define TOUCH_CS -1
-
-      // Encoder pins (TRA/TRB/PSH on the 12-pin module)
-      #define ENCODER_CLK 32
-      #define ENCODER_DT  33
-      #define ENCODER_SW  25
+      #define SD_CS    22
 
       #define SCREEN_BUFFER
 
@@ -1852,14 +1874,14 @@
       #define SCREEN_ORIENTATION 0
 
       #define CHAR_WIDTH 6
-      #define SCREEN_WIDTH  TFT_WIDTH
+      #define SCREEN_WIDTH TFT_WIDTH
       #define SCREEN_HEIGHT TFT_HEIGHT
       #define HEIGHT_1 TFT_WIDTH
-      #define WIDTH_1  TFT_WIDTH
+      #define WIDTH_1 TFT_WIDTH
       #define STANDARD_FONT_CHAR_LIMIT (TFT_WIDTH/6)
-      #define TEXT_HEIGHT (TFT_HEIGHT/10)
+      #define TEXT_HEIGHT (TFT_HEIGHT/12)
       #define BOT_FIXED_AREA 0
-      #define TOP_FIXED_AREA 24
+      #define TOP_FIXED_AREA 48
       #define YMAX TFT_HEIGHT
       #define minimum(a,b)     (((a) < (b)) ? (a) : (b))
       #define MENU_FONT &FreeMono9pt7b
@@ -1868,16 +1890,18 @@
       #define STATUS_BAR_WIDTH (TFT_HEIGHT/16)
       #define LVGL_TICK_PERIOD 6
 
-      #define FRAME_X (TFT_WIDTH/2)
+      #define FRAME_X 120
       #define FRAME_Y 64
-      #define FRAME_W TFT_WIDTH
+      #define FRAME_W 120
       #define FRAME_H 50
 
+      // Red zone size
       #define REDBUTTON_X FRAME_X
       #define REDBUTTON_Y FRAME_Y
       #define REDBUTTON_W (FRAME_W/2)
       #define REDBUTTON_H FRAME_H
 
+      // Green zone size
       #define GREENBUTTON_X (REDBUTTON_X + REDBUTTON_W)
       #define GREENBUTTON_Y FRAME_Y
       #define GREENBUTTON_W (FRAME_W/2)
@@ -2152,18 +2176,19 @@
     #define BUTTON_PADDING 60
   #endif
 
-  #ifdef MARAUDER_ST7789_EC11_240
+  #ifdef MARAUDER_EC11_240
     #define BANNER_TIME 50
 
     #define COMMAND_PREFIX "!"
 
-    #define KEY_X (TFT_WIDTH/2)
-    #define KEY_Y (TFT_HEIGHT/4)
-    #define KEY_W TFT_WIDTH
-    #define KEY_H (TFT_HEIGHT/10)
-    #define KEY_SPACING_X 0
+    // Keypad start position, key sizes and spacing
+    #define KEY_X (TFT_WIDTH/2) // Centre of key
+    #define KEY_Y (TFT_HEIGHT/4.5)
+    #define KEY_W TFT_WIDTH // Width and height
+    #define KEY_H (TFT_HEIGHT/12.8)
+    #define KEY_SPACING_X 0 // X and Y gap
     #define KEY_SPACING_Y 1
-    #define KEY_TEXTSIZE 1
+    #define KEY_TEXTSIZE 1   // Font size multiplier
     #define ICON_W 22
     #define ICON_H 22
     #define BUTTON_PADDING 10
@@ -2259,6 +2284,10 @@
 
     #ifdef MARAUDER_V8
       #define SD_CS 10
+    #endif
+
+    #ifdef MARAUDER_EC11_240
+      #define SD_CS 22
     #endif
 
   #endif
@@ -2361,8 +2390,6 @@
   #elif defined(MARAUDER_C5)
     #define MEM_LOWER_LIM 10000
   #elif defined(MARAUDER_V8)
-    #define MEM_LOWER_LIM 10000
-  #elif defined(MARAUDER_ST7789_EC11_240)
     #define MEM_LOWER_LIM 10000
   #endif
   //// END MEMORY LOWER LIMIT STUFF
@@ -2483,13 +2510,6 @@
       #define GPS_SERIAL_INDEX 1
       #define GPS_TX 14
       #define GPS_RX 13
-    #elif defined(MARAUDER_ST7789_EC11_240)
-      // GPS module 4-pin (GND/VCC/TX/RX) connected to ESP32 UART2
-      // GPS module TX -> GPIO 21 (ESP32 RX2)
-      // GPS module RX -> GPIO 22 (ESP32 TX2)
-      #define GPS_SERIAL_INDEX 2
-      #define GPS_TX 22
-      #define GPS_RX 21
     #endif
   #else
     #define mac_history_len 100
