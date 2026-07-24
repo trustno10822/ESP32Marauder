@@ -32,7 +32,7 @@
   //#define MARAUDER_C5
   //#define MARAUDER_CARDPUTER
   //#define MARAUDER_V8
-  //#define MARAUDER_EC11_240 // Generic ESP32 + 1.54" ST7789 240x240 + EC11 encoder (single combined module)
+  #define MARAUDER_EC11_240 // Generic ESP32 + 1.54" ST7789 240x240 + EC11 encoder (single combined module)
   //// END BOARD TARGETS
 
   #define MARAUDER_VERSION "v1.10.0"
@@ -458,7 +458,7 @@
     #define HAS_MINI_SCREEN
     #define HAS_SD
     #define USE_SD
-    #define HAS_GPS
+    //#define HAS_GPS // No GPS module on this combined ST7789+EC11 board; GPIO 32/33 used by encoder
   #endif
 
   //// POWER MANAGEMENT
